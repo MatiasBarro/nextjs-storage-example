@@ -3,7 +3,8 @@ import { Preferences } from "@/types";
 
 import { kv } from '@vercel/kv';
 import { cookies } from "next/headers";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
+import { redirect } from 'next/navigation';
 
 const itemsPerPageOptions = [{label: '1', value: 1}, {label: '2', value: 2}, {label: '5', value: 5}, {label: '10', value: 10}];
 const sortOptions = [{label: 'Ascendent', value: 'asc'}, {label: 'Descendent', value: 'desc'}];
@@ -27,7 +28,7 @@ const Preferences = ({style, values}: {style: CSSProperties, values: Preferences
             console.error(err);
         }
 
-        revalidatePath('/')
+        redirect('/')
     }
     
     return(
