@@ -20,10 +20,8 @@ const Preferences = ({style, values}: {style: CSSProperties, values: Preferences
 
         const preferences = {itemsPerPage: Number(data.get('itemsPerPage')?.toString() ?? 10), sort: data.get('sort')?.toString() ?? 'asc'}
 
-
         try {
-            const result = await kv.hset(`preferences:${userId}`, preferences);
-
+           await kv.hset(`preferences:${userId}`, preferences);
         } catch(err) { 
             console.error(err);
         }
