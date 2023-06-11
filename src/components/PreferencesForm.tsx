@@ -3,7 +3,6 @@ import { Preferences } from "@/types";
 
 import { kv } from '@vercel/kv';
 import { cookies } from "next/headers";
-// import { revalidatePath } from "next/cache";
 import { redirect } from 'next/navigation';
 
 const itemsPerPageOptions = [{label: '1', value: 1}, {label: '2', value: 2}, {label: '5', value: 5}, {label: '10', value: 10}];

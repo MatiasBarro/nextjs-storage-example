@@ -3,6 +3,7 @@ import TestComponent from "@/components/TestComponent";
 import { kv } from '@vercel/kv';
 import { Preferences } from "@/types";
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 const defaultPreferences: Preferences = {
     itemsPerPage: 2,
@@ -24,8 +25,11 @@ export default async function Home() {
       display:'grid',
       gridTemplate: '[row1-start] "search preferences"[row1-end] / 2fr 1fr',
      }}>
-      <div style={{gridArea: 'search'}}>
-        <h2>Search</h2>
+      <div style={{gridArea: 'search', paddingRight: '2rem'}}>
+        <section style={{display:'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center'}}>
+          <h2>Search Review</h2>
+          <Link href='/review/add'>Add Review</Link>
+        </section>
         <p>Preferences: {JSON.stringify(preferences)}</p>
       </div>
       <PreferencesForm style={{gridArea: 'preferences'}} values={preferences} />
