@@ -6,19 +6,28 @@
     "dev": "next dev --port 5001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate:dev": "dotenv -e .env.development.local -- pnpm dlx prisma migrate dev",
+    "db:migrate:reset": "dotenv -e .env.development.local -- pnpm dlx prisma migrate reset",
+    "db:seeding": "dotenv -e .env.development.local -- node ./prisma/seeding/user.seeding.js"
   },
   "dependencies": {
+    "@prisma/client": "^4.15.0",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@vercel/kv": "^0.2.0",
+    "dotenv-cli": "^7.2.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "next": "13.4.1",
+    "prisma": "^4.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4",
     "uuid": "^9.0.0"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   }
 }
